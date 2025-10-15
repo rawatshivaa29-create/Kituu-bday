@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>To Bestest Girlfriend in the Universe — Surprise for Kittu</title>
+<style>
+:root{/*bg:#ffeef2;--card:#fff1f6;--accent:#ff6b9a;--muted:#6b6b6b;*/}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:radial-gradient(circle at 10% 10%, #fff7fb 0%, #ffeef2 25%, #ffdfe9 100%);color:#222;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px;}
+.container{width:100%;max-width:980px}
+.card{border-radius:18px;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.8));box-shadow:0 10px 40px rgba(255,109,147,0.08);border:1px solid rgba(255,255,255,0.6)}
+.center{text-align:center;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.h1{font-size:28px;color:#ff6b9a;margin:6px 0}
+.lead{color:#6b6b6b;margin:0 0 12px 0;font-size:16px}
+.btn{background:#ff6b9a;color:white;padding:12px 18px;border-radius:12px;border:none;cursor:pointer;font-weight:700;margin-top:12px;box-shadow:0 8px 20px rgba(255,107,129,0.18)}
+.small{font-size:13px;color:#6b6b6b;margin-top:10px}
+.progress{height:8px;background:rgba(255,107,129,0.12);border-radius:999px;margin-top:18px;overflow:hidden;width:80%}
+.bar{height:100%;width:0%;background:linear-gradient(90deg,#ff8aa8,#ff6b9a)}
+.hidden{display:none}
+.main-content{display:flex;gap:24px;align-items:flex-start;margin-top:18px;flex-wrap:wrap}
+.left{flex:1;min-width:260px}
+.right{width:320px;flex-shrink:0}
+.photo{width:100%;height:220px;border-radius:12px;background:linear-gradient(180deg,#ffdfe9,#fff1f6);display:flex;align-items:center;justify-content:center;color:#6b6b6b;font-size:14px;border:1px dashed rgba(255,255,255,0.6)}
+.message{background:white;padding:18px;border-radius:12px;border:1px solid rgba(0,0,0,0.04);line-height:1.5;color:#111;white-space:pre-wrap}
+.footer{margin-top:16px;color:#6b6b6b;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.confetti-piece{position:absolute;width:10px;height:14px;opacity:0.95;transform:translateY(-40vh) rotate(0deg);animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(120vh) rotate(720deg);opacity:1}}
+.heart{font-size:28px;display:inline-block;transform-origin:center center;animation:beat 1s infinite}
+@keyframes beat{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}
+.instructions{background:rgba(255,255,255,0.6);padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.02);font-size:13px;margin-top:12px}
+@media(max-width:780px){.right{width:100%}.main-content{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- Intro sequence -->
+  <div id="intro" class="card hidden">
+    <div id="stage1" class="center hidden">
+      <div class="h1">Are you ready for a surprise? 😏</div>
+      <div class="lead">Click <strong>Yes</strong> if you're ready to see something special.</div>
+      <button class="btn" onclick="nextStage(2)">Yes</button>
+      <div class="small">(Just click Yes — it's for Kittu 💗)</div>
+      <div class="progress"><div id="bar" class="bar" style="width:25%"></div></div>
+    </div>
+    <div id="stage2" class="center hidden">
+      <div class="h1">Are you pakka ready? 😝</div>
+      <div class="lead">One more click and we'll move on.</div>
+      <button class="btn" onclick="nextStage(3)">Yes</button>
+      <div class="small">Paglu Shivi is watching 😉</div>
+      <div class="progress"><div class="bar" style="width:50%"></div></div>
+    </div>
+    <div id="stage3" class="center hidden">
+      <div class="h1">Are you super ready? 🤭</div>
+      <div class="lead">This is getting serious — but in a cute way.</div>
+      <button class="btn" onclick="nextStage(4)">Yes</button>
+      <div class="small">Almost there... ❤️</div>
+      <div class="progress"><div class="bar" style="width:75%"></div></div>
+    </div>
+    <div id="stage4" class="center">
+      <div class="h1">Okkkkk okkk now i got it — finally click YES! 🎉</div>
+      <div class="lead">Ready to open your surprise?</div>
+      <button class="btn" onclick="openFinal()">YESSS</button>
+      <div class="small">Clicking this will open your surprise and play the song.</div>
+      <div class="progress"><div class="bar" style="width:100%"></div></div>
+    </div>
+  </div>
+
+  <!-- Main surprise page (hidden until final click) -->
+  <div id="main" class="card" style="position:relative;overflow:hidden">
+    <div style="position:absolute;right:18px;top:18px;color:rgba(0,0,0,0.06);font-weight:700;font-size:80px;transform:rotate(-12deg)">Kittu</div>
+    <div class="main-content">
+      <div class="left">
+        <h2 style="margin:0;color:#ff6b9a">To Bestest Girlfriend in the Universe <span class="heart">❤️</span></h2>
+        <div class="message" id="userMessage">Kittu 
+Happy bday to u 
+Merko smajh ni arra me kya likho itna sab kuch hai ki me trrko bta ni skta 🥲
+U are the world bestest gf and i really mean it jab me aur ke bamdiyo ke barre me sunto to i felt ki sach me ek esse insan hai mere pass jese me khona ni chahta u have 100 reason to walk out bit still u chooses to be beside me  that thing really touched my heart uss din jis din tu jarri thi  mere body me ek senation lagya tha me darr gaya cause merko pta hai how much mistake and silly thing i do umer me terse bhale bada hu but akala me terse nadan ho terse bhut chweje sikhne hai merko adn i mean it tera calmnesss i love it yaar
+I know aj kal tu bhut pareshan me hai but trust the process sab kuch acche ke liye hita hai me chata hu bhwgwan tekro wo sarri cheeje wo sarri kushiyan jo to hamesha chahti hai i really mean u are the best person and truely the best girl k ever met in my life 
+And at any cosf i really dont want to lose u yaar
+Happy bday to my jaan abhi durrr hu par dhekne ek din terko essa surprise ni bhut bade surprise dunga 
+I love u yaarr and i meant it i really meant it ❤️❤️❤️
+</div>
+        <div class="footer">
+          <div>Made with love, <strong>Yours Paglu Shivi</strong></div>
+          <div style="opacity:0.85">Tip: Click the download button to save this page.</div>
+        </div>
+        <div style="margin-top:12px">
+          <button class="btn" onclick="makeConfetti()">Play Confetti 🎉</button>
+          <button class="btn" onclick="downloadPage()" style="background:#ff9fb1;margin-left:8px">Download Page</button>
+        </div>
+        <div class="instructions">
+          If you want to host this page online: download the page, keep the MP3 file in the same folder, and follow the hosting steps provided below.
+        </div>
+      </div>
+      <div class="right">
+        <div class="photo" id="photoArea">Upload a photo on the downloaded page</div>
+        <div style="margin-top:12px;font-size:13px;color:#6b6b6b">Photo preview (use upload after download to personalize)</div>
+      </div>
+    </div>
+    <audio id="bgm" src="Happy Birthday To You-Happy birthday song played with different instruments! - Magical 3D.mp3" preload="auto"></audio>
+  </div>
+
+  <!-- Hosting instructions shown in chat as well, but included here for convenience -->
+  <div style="margin-top:12px;font-size:13px;color:#6b6b6b;text-align:left" class="card">
+    <strong>Hosting steps (quick):</strong>
+    <ol>
+      <li>Download the HTML file (click the Download Page button) — it will save as <code>kittu_birthday_surprise.html</code>.</li>
+      <li>Save the MP3 file in the <em>same folder</em> as the HTML (filename must stay exactly: <code>Happy Birthday To You-Happy birthday song played with different instruments! - Magical 3D.mp3</code>).</li>
+      <li>To host on GitHub Pages:
+        <ol>
+          <li>Create a new public repository (e.g., <code>kittu-bday</code>).</li>
+          <li>Upload both the HTML file and the MP3 file to the repo's root.</li>
+          <li>Go to the repository Settings → Pages → choose branch <code>main</code> and / (root). Save.</li>
+          <li>Your site will be available at <code>https://&lt;your-github-username&gt;.github.io/&lt;repo-name&gt;/kittu_birthday_surprise.html</code> within a minute.</li>
+        </ol>
+      </li>
+      <li>Or use Netlify: drag &amp; drop the HTML+MP3 into Netlify Drop for an instant public link.</li>
+    </ol>
+  </div>
+</div>
+
+<script>
+  // Intro flow controls
+  function nextStage(n){
+    document.querySelectorAll('#intro .center').forEach(function(el){ el.classList.add('hidden'); });
+    document.getElementById('stage'+n).classList.remove('hidden');
+  }
+  function openFinal(){
+    document.getElementById('intro').classList.add('hidden');
+    document.getElementById('main').classList.remove('hidden');
+    // Play music (user clicked so allowed)
+    var bgm = document.getElementById('bgm');
+    bgm.currentTime = 0;
+    var playPromise = bgm.play();
+    if(playPromise !== undefined){
+      playPromise.then(function(){}).catch(function(){});
+    }
+    makeConfetti();
+  }
+
+  // Confetti
+  function makeConfetti(){
+    var colors = ["#ff6b81","#ffd166","#ff9fb1","#ffb6d5","#c084fc"];
+    for(var i=0;i<32;i++){
+      var el = document.createElement('div');
+      el.className='confetti-piece';
+      el.style.left = Math.random()*100 + "%";
+      el.style.background = colors[Math.floor(Math.random()*colors.length)];
+      el.style.width = (6+Math.random()*12)+"px";
+      el.style.height = (8+Math.random()*18)+"px";
+      el.style.borderRadius = Math.random()*6+"px";
+      el.style.top = (-20 - Math.random()*20) + "vh";
+      el.style.animationDuration = (3 + Math.random()*3) + "s";
+      el.style.transform = "rotate(" + (Math.random()*360) + "deg)";
+      document.body.appendChild(el);
+      (function(el){ setTimeout(function(){ el.remove(); },7000); })(el);
+    }
+  }
+
+  // Download page (saves HTML and keeps music reference by filename)
+  function downloadPage(){
+    var name = "kittu_birthday_surprise.html";
+    var html = "<!doctype html>\n" + document.documentElement.outerHTML;
+    var blob = new Blob([html], {type:'text/html'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    a.click();
+  }
+
+  // Keyboard shortcut: press B for confetti
+  document.addEventListener('keydown',function(e){ if(e.key.toLowerCase()==='b') makeConfetti(); });
+</script>
+
+
+<div class="confetti-piece" style="left: 22.9772%; background: rgb(255, 209, 102); width: 12.3029px; height: 18.8618px; border-radius: 3.41498px; top: -28.5138vh; animation-duration: 4.82164s; transform: rotate(60.966deg);"></div><div class="confetti-piece" style="left: 91.493%; background: rgb(255, 182, 213); width: 17.5486px; height: 11.8135px; border-radius: 1.1328px; top: -21.3575vh; animation-duration: 5.60847s; transform: rotate(246.361deg);"></div><div class="confetti-piece" style="left: 25.2039%; background: rgb(255, 182, 213); width: 14.2322px; height: 20.012px; border-radius: 2.73125px; top: -39.7833vh; animation-duration: 4.20907s; transform: rotate(85.7406deg);"></div><div class="confetti-piece" style="left: 75.0258%; background: rgb(192, 132, 252); width: 8.2861px; height: 15.2319px; border-radius: 0.129941px; top: -21.6471vh; animation-duration: 3.08994s; transform: rotate(284.098deg);"></div><div class="confetti-piece" style="left: 70.3875%; background: rgb(255, 107, 129); width: 11.1261px; height: 14.937px; border-radius: 3.90945px; top: -21.4844vh; animation-duration: 4.9528s; transform: rotate(243.296deg);"></div><div class="confetti-piece" style="left: 77.1412%; background: rgb(255, 159, 177); width: 8.78307px; height: 10.313px; border-radius: 5.97046px; top: -32.2822vh; animation-duration: 3.60263s; transform: rotate(121.984deg);"></div><div class="confetti-piece" style="left: 91.9304%; background: rgb(255, 159, 177); width: 9.82576px; height: 24.7253px; border-radius: 3.18836px; top: -25.0658vh; animation-duration: 3.15621s; transform: rotate(193.312deg);"></div><div class="confetti-piece" style="left: 89.8614%; background: rgb(255, 182, 213); width: 9.01134px; height: 16.1612px; border-radius: 5.28195px; top: -23.6442vh; animation-duration: 4.80663s; transform: rotate(287.056deg);"></div><div class="confetti-piece" style="left: 39.8333%; background: rgb(192, 132, 252); width: 7.28766px; height: 25.4409px; border-radius: 2.60366px; top: -33.6404vh; animation-duration: 3.82048s; transform: rotate(212.305deg);"></div><div class="confetti-piece" style="left: 86.9416%; background: rgb(255, 159, 177); width: 13.1516px; height: 25.4489px; border-radius: 5.65541px; top: -38.8731vh; animation-duration: 4.01075s; transform: rotate(49.7348deg);"></div><div class="confetti-piece" style="left: 43.8076%; background: rgb(255, 182, 213); width: 14.1105px; height: 9.11393px; border-radius: 5.78239px; top: -23.7505vh; animation-duration: 5.36337s; transform: rotate(182.968deg);"></div><div class="confetti-piece" style="left: 42.7099%; background: rgb(255, 107, 129); width: 9.46121px; height: 10.9747px; border-radius: 0.895628px; top: -26.3864vh; animation-duration: 4.73045s; transform: rotate(231.348deg);"></div><div class="confetti-piece" style="left: 79.4263%; background: rgb(255, 107, 129); width: 16.721px; height: 16.0002px; border-radius: 2.3437px; top: -22.0485vh; animation-duration: 5.90564s; transform: rotate(114.334deg);"></div><div class="confetti-piece" style="left: 77.753%; background: rgb(192, 132, 252); width: 11.7522px; height: 21.0168px; border-radius: 1.1674px; top: -38.2948vh; animation-duration: 3.61273s; transform: rotate(155.038deg);"></div><div class="confetti-piece" style="left: 60.7076%; background: rgb(192, 132, 252); width: 16.1222px; height: 18.1442px; border-radius: 4.75698px; top: -38.621vh; animation-duration: 5.1711s; transform: rotate(241.401deg);"></div><div class="confetti-piece" style="left: 76.9781%; background: rgb(192, 132, 252); width: 10.5095px; height: 24.6442px; border-radius: 4.87049px; top: -28.256vh; animation-duration: 4.93784s; transform: rotate(109.397deg);"></div><div class="confetti-piece" style="left: 4.75235%; background: rgb(255, 159, 177); width: 9.99044px; height: 20.2699px; border-radius: 4.09067px; top: -20.2557vh; animation-duration: 3.02734s; transform: rotate(210.138deg);"></div><div class="confetti-piece" style="left: 96.1774%; background: rgb(255, 107, 129); width: 17.8653px; height: 8.75245px; border-radius: 2.86517px; top: -34.607vh; animation-duration: 3.12439s; transform: rotate(272.523deg);"></div><div class="confetti-piece" style="left: 90.5949%; background: rgb(255, 159, 177); width: 16.3046px; height: 9.71176px; border-radius: 3.37108px; top: -39.8621vh; animation-duration: 3.22035s; transform: rotate(356.622deg);"></div><div class="confetti-piece" style="left: 63.689%; background: rgb(255, 209, 102); width: 13.3423px; height: 9.69921px; border-radius: 4.7824px; top: -23.3298vh; animation-duration: 3.68788s; transform: rotate(270.575deg);"></div><div class="confetti-piece" style="left: 91.143%; background: rgb(255, 182, 213); width: 6.41078px; height: 22.8416px; border-radius: 2.90929px; top: -27.5113vh; animation-duration: 4.34188s; transform: rotate(299.378deg);"></div><div class="confetti-piece" style="left: 94.0524%; background: rgb(255, 159, 177); width: 11.8587px; height: 22.3235px; border-radius: 3.40707px; top: -22.5633vh; animation-duration: 5.02174s; transform: rotate(327.139deg);"></div><div class="confetti-piece" style="left: 87.2298%; background: rgb(255, 209, 102); width: 14.2642px; height: 17.967px; border-radius: 5.78494px; top: -20.1579vh; animation-duration: 5.58395s; transform: rotate(79.8587deg);"></div><div class="confetti-piece" style="left: 53.3923%; background: rgb(255, 182, 213); width: 15.7093px; height: 8.08442px; border-radius: 4.69578px; top: -27.5934vh; animation-duration: 3.0121s; transform: rotate(283.365deg);"></div><div class="confetti-piece" style="left: 53.1101%; background: rgb(255, 182, 213); width: 12.4777px; height: 22.3952px; border-radius: 3.24081px; top: -21.5522vh; animation-duration: 3.2449s; transform: rotate(268.357deg);"></div><div class="confetti-piece" style="left: 66.7097%; background: rgb(192, 132, 252); width: 7.56613px; height: 21.0034px; border-radius: 3.36039px; top: -25.4727vh; animation-duration: 3.43935s; transform: rotate(260.879deg);"></div><div class="confetti-piece" style="left: 55.4118%; background: rgb(255, 209, 102); width: 13.0816px; height: 18.6772px; border-radius: 2.95147px; top: -23.6547vh; animation-duration: 4.50587s; transform: rotate(121.839deg);"></div><div class="confetti-piece" style="left: 79.0128%; background: rgb(192, 132, 252); width: 10.6741px; height: 19.8837px; border-radius: 0.86827px; top: -27.0248vh; animation-duration: 5.43181s; transform: rotate(66.9411deg);"></div><div class="confetti-piece" style="left: 47.4769%; background: rgb(192, 132, 252); width: 7.92078px; height: 10.854px; border-radius: 1.98801px; top: -36.9972vh; animation-duration: 3.23603s; transform: rotate(177.28deg);"></div><div class="confetti-piece" style="left: 34.9385%; background: rgb(255, 107, 129); width: 9.32975px; height: 11.1952px; border-radius: 5.8313px; top: -31.6411vh; animation-duration: 3.4778s; transform: rotate(171.037deg);"></div><div class="confetti-piece" style="left: 8.41614%; background: rgb(255, 209, 102); width: 17.9828px; height: 8.38807px; border-radius: 4.69563px; top: -27.2222vh; animation-duration: 5.30894s; transform: rotate(239.894deg);"></div><div class="confetti-piece" style="left: 72.5182%; background: rgb(255, 182, 213); width: 9.34495px; height: 21.7001px; border-radius: 1.22589px; top: -38.8722vh; animation-duration: 5.70105s; transform: rotate(58.4189deg);"></div></body></html>
